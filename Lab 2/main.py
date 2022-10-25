@@ -21,7 +21,7 @@ def solve(method, board):
         for node in path:
             node.puzzle.pprint()
         print("finding solution time: ", end - start)
-        return path
+    return path
 
 
 def test(num, board):
