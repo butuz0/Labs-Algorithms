@@ -21,7 +21,7 @@ if __name__ == "__main__":
     iterations = 1000
     quantity = 100
     items = [(randint(2, 30), randint(1, 25)) for _ in range(quantity)]  # list of items, item = tuple(value, weight)
-    items.sort(reverse=True)  # sort items, so that chromosomes in generation were also sorted
+    items.sort(reverse=True)  # sort items, so that chromosomes in population were also sorted
     print(items)
     mutation_chance = 5
     solution = GeneticSolution(capacity, iterations, quantity, items, mutation_chance)
