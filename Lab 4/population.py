@@ -1,4 +1,4 @@
-import random
+from random import choice
 from chromosome import Chromosome
 
 
@@ -20,7 +20,7 @@ class Population:
 
     def choice(self):
         """Returns two lists (parent) for 'crossing': best of the population and a random one"""
-        return self.population[0], random.choice(self.population)
+        return self.population[0], choice(self.population)
 
     def crossing(self, parents: tuple):
         """Receives as parameter tuple of two lists of the same length, returns their 'child'"""
