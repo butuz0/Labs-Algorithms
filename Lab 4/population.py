@@ -1,3 +1,4 @@
+import random
 from random import choice
 from chromosome import Chromosome
 
@@ -25,8 +26,16 @@ class Population:
     def crossing(self, parents: tuple):
         """Receives as parameter tuple of two lists of the same length, returns their 'child'"""
         l1, l2 = parents
-        x = len(self.population)
-        return l1[:int(x/4)] + l2[int(x/4):int(x/2)] + l1[int(x/2):int(3*x/4)] + l2[int(3*x/4):]
+        x = int(self.quantity/4)
+        res = []
+        for i in range(4):
+            if random.randint(0, 1) == 0:
+                res += l1[:x]
+            else:
+                res += l2[:x]
+            l1 = l1[x:]
+            l2 = l2[x:]
+        return res
 
     def insert(self, chromosome: Chromosome):
         """Receives as parameter a Chromosome object. Inserts new chromosome into the population and deletes the
